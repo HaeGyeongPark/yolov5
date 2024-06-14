@@ -1,0 +1,397 @@
+Overriding model.yaml nc=4 with nc=15
+                 from  n    params  module                                  arguments
+  0                -1  1      1760  models.common.Conv                      [3, 16, 6, 2, 2]
+  1                -1  1      4672  models.common.Conv                      [16, 32, 3, 2]
+  2                -1  1      4800  models.common.C3                        [32, 32, 1]
+  3                -1  1     18560  models.common.Conv                      [32, 64, 3, 2]
+  4                -1  2     29184  models.common.C3                        [64, 64, 2]
+  5                -1  1     73984  models.common.Conv                      [64, 128, 3, 2]
+  6                -1  3    156928  models.common.C3                        [128, 128, 3]
+  7                -1  1    295424  models.common.Conv                      [128, 256, 3, 2]
+  8                -1  1    296448  models.common.C3                        [256, 256, 1]
+  9                -1  1    164608  models.common.SPPF                      [256, 256, 5]
+ 10                -1  1     33024  models.common.Conv                      [256, 128, 1, 1]
+ 11                -1  1         0  torch.nn.modules.upsampling.Upsample    [None, 2, 'nearest']
+ 12           [-1, 6]  1         0  models.common.Concat                    [1]
+ 13                -1  1     90880  models.common.C3                        [256, 128, 1, False]
+ 14                -1  1      8320  models.common.Conv                      [128, 64, 1, 1]
+ 15                -1  1         0  torch.nn.modules.upsampling.Upsample    [None, 2, 'nearest']
+ 16           [-1, 4]  1         0  models.common.Concat                    [1]
+ 17                -1  1     22912  models.common.C3                        [128, 64, 1, False]
+ 18                -1  1     36992  models.common.Conv                      [64, 64, 3, 2]
+ 19          [-1, 14]  1         0  models.common.Concat                    [1]
+ 20                -1  1     74496  models.common.C3                        [128, 128, 1, False]
+ 21                -1  1    147712  models.common.Conv                      [128, 128, 3, 2]
+ 22          [-1, 10]  1         0  models.common.Concat                    [1]
+ 23                -1  1    296448  models.common.C3                        [256, 256, 1, False]
+ 24      [17, 20, 23]  1      9152  models.yolo.Detect                      [15, [[17, 17], [64, 39], [94, 131]], [64, 128, 256]]
+YOLOv5n_nuscenes summary: 235 layers, 1766304 parameters, 1766304 gradients, 4.2 GFLOPs
+Transferred 342/370 items from yolov5n.pt
+Fusing layers...
+YOLOv5n summary: 213 layers, 1867405 parameters, 0 gradients, 4.5 GFLOPs
+[34m[1mAMP: [39m[22mchecks passed ✅
+[34m[1moptimizer:[39m[22m SGD(lr=0.01) with parameter groups 60 weight(decay=0.0), 63 weight(decay=0.0005), 66 bias
+[34m[1mtrain: [39m[22mScanning /home/yolov5/AUE8088-PA2/datasets/nuscenes/train.cache... 28130 images, 1425 backgrounds, 0 corrupt: 100%|██████████| 28130/28130 [00:00<?, ?it/s]
+[34m[1mval: [39m[22mScanning /home/yolov5/AUE8088-PA2/datasets/nuscenes/val.cache... 6019 images, 257 backgrounds, 0 corrupt: 100%|██████████| 6019/6019 [00:00<?, ?it/s]
+[34m[1mval: [39m[22mWARNING ⚠️ datasets/nuscenes/val/images/1220f9a205ae44418fcce91722e1e601.png: 1 duplicate labels removed
+Plotting labels to runs/train/yolov5n16/labels.jpg...
+Image sizes 416 train, 416 val
+Using 16 dataloader workers
+Logging results to [1mruns/train/yolov5n16
+Starting training for 200 epochs...
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      0/199      2.94G    0.09794     0.9153     0.1009        534        416: 100%|██████████| 440/440 [00:33<00:00, 13.07it/s]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   0%|          | 0/48 [00:00<?, ?it/s]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   2%|▏         | 1/48 [00:07<05:39,  7.21s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   4%|▍         | 2/48 [00:14<05:28,  7.14s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   6%|▋         | 3/48 [00:21<05:20,  7.13s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   8%|▊         | 4/48 [00:28<05:13,  7.13s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  10%|█         | 5/48 [00:35<05:06,  7.12s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  12%|█▎        | 6/48 [00:42<04:58,  7.11s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  15%|█▍        | 7/48 [00:49<04:51,  7.12s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  17%|█▋        | 8/48 [00:57<04:44,  7.12s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  19%|█▉        | 9/48 [01:04<04:37,  7.11s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  21%|██        | 10/48 [01:11<04:30,  7.12s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  23%|██▎       | 11/48 [01:18<04:23,  7.12s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  25%|██▌       | 12/48 [01:25<04:16,  7.11s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  27%|██▋       | 13/48 [01:32<04:08,  7.11s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  29%|██▉       | 14/48 [01:39<04:01,  7.11s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  31%|███▏      | 15/48 [01:46<03:54,  7.11s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  33%|███▎      | 16/48 [01:53<03:47,  7.12s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  35%|███▌      | 17/48 [02:01<03:40,  7.12s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  38%|███▊      | 18/48 [02:08<03:33,  7.12s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  40%|███▉      | 19/48 [02:15<03:26,  7.11s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  42%|████▏     | 20/48 [02:22<03:19,  7.12s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  44%|████▍     | 21/48 [02:29<03:12,  7.12s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  46%|████▌     | 22/48 [02:36<03:05,  7.12s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  48%|████▊     | 23/48 [02:43<02:58,  7.13s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  50%|█████     | 24/48 [02:50<02:50,  7.12s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  52%|█████▏    | 25/48 [02:57<02:43,  7.11s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  54%|█████▍    | 26/48 [03:05<02:36,  7.11s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  56%|█████▋    | 27/48 [03:12<02:29,  7.11s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  58%|█████▊    | 28/48 [03:19<02:22,  7.11s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  60%|██████    | 29/48 [03:26<02:15,  7.11s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  62%|██████▎   | 30/48 [03:33<02:07,  7.11s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  65%|██████▍   | 31/48 [03:40<02:00,  7.11s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  67%|██████▋   | 32/48 [03:47<01:53,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  69%|██████▉   | 33/48 [03:54<01:46,  7.11s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  71%|███████   | 34/48 [04:01<01:39,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  73%|███████▎  | 35/48 [04:08<01:32,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  75%|███████▌  | 36/48 [04:16<01:25,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  77%|███████▋  | 37/48 [04:23<01:18,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  79%|███████▉  | 38/48 [04:30<01:10,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  81%|████████▏ | 39/48 [04:37<01:03,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  83%|████████▎ | 40/48 [04:44<00:56,  7.11s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  85%|████████▌ | 41/48 [04:51<00:49,  7.12s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  88%|████████▊ | 42/48 [04:58<00:42,  7.12s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  90%|████████▉ | 43/48 [05:05<00:35,  7.12s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  92%|█████████▏| 44/48 [05:13<00:28,  7.12s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  94%|█████████▍| 45/48 [05:20<00:21,  7.13s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  96%|█████████▌| 46/48 [05:27<00:14,  7.13s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 48/48 [05:34<00:00,  6.97s/it]
+                   all       6019      51649      0.931     0.0246     0.0197    0.00658
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      1/199       3.2G    0.09154     0.9033    0.09637        569        416: 100%|██████████| 440/440 [00:32<00:00, 13.33it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 48/48 [05:14<00:00,  6.54s/it]
+                   all       6019      51649      0.555     0.0231      0.024    0.00864
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size
+      2/199       3.2G    0.09086     0.9031    0.09625       1170        416:  10%|█         | 44/440 [00:03<00:30, 12.96it/s]
+      2/199       3.2G    0.09074     0.9031    0.09624       1227        416:  16%|█▋        | 72/440 [00:05<00:26, 13.70it/s]
+      2/199       3.2G    0.09073     0.9031    0.09625       1274        416:  22%|██▏       | 98/440 [00:07<00:25, 13.54it/s]
+      2/199       3.2G    0.09077     0.9031    0.09623       1244        416:  28%|██▊       | 122/440 [00:09<00:24, 12.99it/s]
+      2/199       3.2G    0.09069     0.9031     0.0962       1311        416:  33%|███▎      | 144/440 [00:10<00:22, 13.16it/s]
+      2/199       3.2G    0.09073     0.9031     0.0962       1256        416:  39%|███▉      | 172/440 [00:12<00:20, 13.38it/s]
+      2/199       3.2G    0.09064     0.9031    0.09619        994        416:  45%|████▌     | 198/440 [00:14<00:18, 12.78it/s]
+      2/199       3.2G    0.09068     0.9031    0.09619       1068        416:  51%|█████     | 224/440 [00:16<00:16, 12.77it/s]
+      2/199       3.2G    0.09069     0.9031     0.0962       1134        416:  57%|█████▋    | 250/440 [00:18<00:14, 12.83it/s]
+      2/199       3.2G    0.09064     0.9031     0.0962        989        416:  63%|██████▎   | 276/440 [00:20<00:12, 12.82it/s]
+      2/199       3.2G    0.09063     0.9031     0.0962       1138        416:  69%|██████▊   | 302/440 [00:22<00:09, 14.03it/s]
+      2/199       3.2G    0.09061     0.9031    0.09619       1090        416:  75%|███████▍  | 328/440 [00:24<00:08, 12.88it/s]
+      2/199       3.2G    0.09062      0.903     0.0962       1112        416:  80%|████████  | 354/440 [00:26<00:06, 13.00it/s]
+      2/199       3.2G    0.09058      0.903    0.09619       1100        416:  86%|████████▋ | 380/440 [00:29<00:04, 12.98it/s]
+      2/199       3.2G    0.09061      0.903     0.0962       1212        416:  92%|█████████▏| 406/440 [00:30<00:02, 13.72it/s]
+      2/199       3.2G     0.0906      0.903     0.0962       1245        416:  99%|█████████▊| 434/440 [00:33<00:00, 13.01it/s]
+      2/199       3.2G    0.09062      0.903     0.0962        595        416: 100%|██████████| 440/440 [00:33<00:00, 13.15it/s]
+      2/199       3.2G    0.09062      0.903     0.0962        595        416: 100%|██████████| 440/440 [00:33<00:00, 13.15it/s]
+      2/199       3.2G    0.09062      0.903     0.0962        595        416: 100%|██████████| 440/440 [00:33<00:00, 13.15it/s]
+      2/199       3.2G    0.09062      0.903     0.0962        595        416: 100%|██████████| 440/440 [00:33<00:00, 13.15it/s]
+      2/199       3.2G    0.09062      0.903     0.0962        595        416: 100%|██████████| 440/440 [00:33<00:00, 13.15it/s]
+      2/199       3.2G    0.09062      0.903     0.0962        595        416: 100%|██████████| 440/440 [00:33<00:00, 13.15it/s]
+      2/199       3.2G    0.09062      0.903     0.0962        595        416: 100%|██████████| 440/440 [00:33<00:00, 13.15it/s]
+      2/199       3.2G    0.09062      0.903     0.0962        595        416: 100%|██████████| 440/440 [00:33<00:00, 13.15it/s]
+      2/199       3.2G    0.09062      0.903     0.0962        595        416: 100%|██████████| 440/440 [00:33<00:00, 13.15it/s]
+      2/199       3.2G    0.09062      0.903     0.0962        595        416: 100%|██████████| 440/440 [00:33<00:00, 13.15it/s]
+      2/199       3.2G    0.09062      0.903     0.0962        595        416: 100%|██████████| 440/440 [00:33<00:00, 13.15it/s]
+      2/199       3.2G    0.09062      0.903     0.0962        595        416: 100%|██████████| 440/440 [00:33<00:00, 13.15it/s]
+      2/199       3.2G    0.09062      0.903     0.0962        595        416: 100%|██████████| 440/440 [00:33<00:00, 13.15it/s]
+      2/199       3.2G    0.09062      0.903     0.0962        595        416: 100%|██████████| 440/440 [00:33<00:00, 13.15it/s]
+      2/199       3.2G    0.09062      0.903     0.0962        595        416: 100%|██████████| 440/440 [00:33<00:00, 13.15it/s]
+      2/199       3.2G    0.09062      0.903     0.0962        595        416: 100%|██████████| 440/440 [00:33<00:00, 13.15it/s]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  33%|███▎      | 16/48 [01:50<03:44,  7.02s/it]
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  33%|███▎      | 16/48 [01:50<03:44,  7.02s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  33%|███▎      | 16/48 [01:50<03:44,  7.02s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  33%|███▎      | 16/48 [01:50<03:44,  7.02s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  40%|███▉      | 19/48 [02:11<03:25,  7.08s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  40%|███▉      | 19/48 [02:11<03:25,  7.08s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  40%|███▉      | 19/48 [02:11<03:25,  7.08s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  40%|███▉      | 19/48 [02:11<03:25,  7.08s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  40%|███▉      | 19/48 [02:11<03:25,  7.08s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  50%|█████     | 24/48 [02:47<02:50,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  50%|█████     | 24/48 [02:47<02:50,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  50%|█████     | 24/48 [02:47<02:50,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  56%|█████▋    | 27/48 [03:08<02:29,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  56%|█████▋    | 27/48 [03:08<02:29,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  58%|█████▊    | 28/48 [03:15<02:22,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  58%|█████▊    | 28/48 [03:15<02:22,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  58%|█████▊    | 28/48 [03:15<02:22,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  58%|█████▊    | 28/48 [03:15<02:22,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  58%|█████▊    | 28/48 [03:15<02:22,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  69%|██████▉   | 33/48 [03:51<01:46,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  69%|██████▉   | 33/48 [03:51<01:46,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  69%|██████▉   | 33/48 [03:51<01:46,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  75%|███████▌  | 36/48 [04:12<01:25,  7.09s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  75%|███████▌  | 36/48 [04:12<01:25,  7.09s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  75%|███████▌  | 36/48 [04:12<01:25,  7.09s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  75%|███████▌  | 36/48 [04:12<01:25,  7.09s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  81%|████████▏ | 39/48 [04:34<01:03,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  83%|████████▎ | 40/48 [04:41<00:56,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  85%|████████▌ | 41/48 [04:48<00:49,  7.08s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  85%|████████▌ | 41/48 [04:48<00:49,  7.08s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  85%|████████▌ | 41/48 [04:48<00:49,  7.08s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  85%|████████▌ | 41/48 [04:48<00:49,  7.08s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  85%|████████▌ | 41/48 [04:48<00:49,  7.08s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  96%|█████████▌| 46/48 [05:23<00:14,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  96%|█████████▌| 46/48 [05:23<00:14,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  96%|█████████▌| 46/48 [05:23<00:14,  7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      3/199       3.2G    0.09034     0.9029    0.09616       1121        416:  13%|█▎        | 56/440 [00:03<00:29, 12.93it/s] 7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      3/199       3.2G    0.09037      0.903    0.09617       1017        416:  19%|█▊        | 82/440 [00:05<00:27, 13.06it/s] 7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      3/199       3.2G    0.09034      0.903    0.09615       1143        416:  25%|██▍       | 108/440 [00:07<00:25, 12.99it/s]7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      3/199       3.2G    0.09036      0.903    0.09616       1071        416:  30%|███       | 134/440 [00:09<00:23, 12.84it/s]7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      3/199       3.2G    0.09035      0.903    0.09615       1166        416:  36%|███▋      | 160/440 [00:11<00:21, 12.93it/s]7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      3/199       3.2G    0.09039      0.903    0.09617       1439        416:  42%|████▏     | 186/440 [00:13<00:19, 12.85it/s]7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      3/199       3.2G    0.09036      0.903    0.09616       1177        416:  48%|████▊     | 212/440 [00:15<00:17, 12.87it/s]7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      3/199       3.2G    0.09029      0.903    0.09615       1154        416:  55%|█████▍    | 240/440 [00:17<00:15, 13.03it/s]7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      3/199       3.2G    0.09025      0.903    0.09613       1056        416:  60%|██████    | 266/440 [00:20<00:13, 12.93it/s]7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      3/199       3.2G    0.09024      0.903    0.09613       1101        416:  66%|██████▋   | 292/440 [00:22<00:11, 12.96it/s]7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      3/199       3.2G    0.09019      0.903    0.09613       1078        416:  72%|███████▏  | 318/440 [00:24<00:09, 12.87it/s]7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      3/199       3.2G    0.09018      0.903    0.09612       1298        416:  78%|███████▊  | 344/440 [00:26<00:07, 13.00it/s]7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      3/199       3.2G    0.09014      0.903    0.09612       1190        416:  84%|████████▍ | 370/440 [00:28<00:05, 13.04it/s]7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      3/199       3.2G    0.09011     0.9029    0.09611       1171        416:  90%|█████████ | 398/440 [00:30<00:03, 13.01it/s]7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      3/199       3.2G    0.09012     0.9029    0.09612       1170        416:  96%|█████████▋| 424/440 [00:32<00:01, 12.92it/s]7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      3/199       3.2G    0.09011     0.9029    0.09611        567        416: 100%|██████████| 440/440 [00:33<00:00, 13.21it/s]7.10s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   2%|▏         | 1/48 [00:06<05:23,  6.89s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   4%|▍         | 2/48 [00:13<05:14,  6.83s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   6%|▋         | 3/48 [00:20<05:07,  6.83s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   8%|▊         | 4/48 [00:27<04:59,  6.82s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  10%|█         | 5/48 [00:34<04:52,  6.81s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  12%|█▎        | 6/48 [00:40<04:46,  6.82s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  15%|█▍        | 7/48 [00:47<04:39,  6.82s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  17%|█▋        | 8/48 [00:54<04:33,  6.83s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  19%|█▉        | 9/48 [01:01<04:26,  6.83s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  21%|██        | 10/48 [01:08<04:19,  6.84s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  23%|██▎       | 11/48 [01:15<04:13,  6.84s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  25%|██▌       | 12/48 [01:21<04:06,  6.84s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  27%|██▋       | 13/48 [01:28<03:59,  6.84s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  29%|██▉       | 14/48 [01:35<03:52,  6.85s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  31%|███▏      | 15/48 [01:42<03:45,  6.84s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  33%|███▎      | 16/48 [01:49<03:38,  6.84s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  35%|███▌      | 17/48 [01:56<03:32,  6.85s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  38%|███▊      | 18/48 [02:03<03:25,  6.85s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  40%|███▉      | 19/48 [02:09<03:18,  6.85s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  42%|████▏     | 20/48 [02:16<03:12,  6.86s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  44%|████▍     | 21/48 [02:23<03:04,  6.84s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  46%|████▌     | 22/48 [02:30<02:57,  6.84s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  48%|████▊     | 23/48 [02:37<02:50,  6.83s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  50%|█████     | 24/48 [02:44<02:43,  6.83s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  52%|█████▏    | 25/48 [02:50<02:37,  6.84s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  54%|█████▍    | 26/48 [02:57<02:30,  6.84s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  56%|█████▋    | 27/48 [03:04<02:23,  6.83s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  58%|█████▊    | 28/48 [03:11<02:16,  6.83s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  60%|██████    | 29/48 [03:18<02:09,  6.83s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  62%|██████▎   | 30/48 [03:25<02:02,  6.83s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  65%|██████▍   | 31/48 [03:31<01:56,  6.82s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  67%|██████▋   | 32/48 [03:38<01:49,  6.82s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  69%|██████▉   | 33/48 [03:45<01:42,  6.81s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  71%|███████   | 34/48 [03:52<01:35,  6.80s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  73%|███████▎  | 35/48 [03:59<01:28,  6.81s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  75%|███████▌  | 36/48 [04:05<01:21,  6.80s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  77%|███████▋  | 37/48 [04:12<01:14,  6.81s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  79%|███████▉  | 38/48 [04:19<01:08,  6.81s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  81%|████████▏ | 39/48 [04:26<01:01,  6.82s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  83%|████████▎ | 40/48 [04:33<00:54,  6.82s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  85%|████████▌ | 41/48 [04:39<00:47,  6.81s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  88%|████████▊ | 42/48 [04:46<00:40,  6.82s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  90%|████████▉ | 43/48 [04:53<00:34,  6.81s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  92%|█████████▏| 44/48 [05:00<00:27,  6.80s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  94%|█████████▍| 45/48 [05:07<00:20,  6.80s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  96%|█████████▌| 46/48 [05:14<00:13,  6.81s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 48/48 [05:21<00:00,  6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      4/199      3.21G    0.09018     0.9028    0.09627       1108        416:   3%|▎         | 14/440 [00:00<00:30, 14.17it/s] 6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      4/199      3.21G    0.08987     0.9029    0.09609       1148        416:   9%|▉         | 40/440 [00:03<00:31, 12.84it/s] 6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      4/199      3.21G    0.08963     0.9029    0.09605       1437        416:  15%|█▌        | 66/440 [00:05<00:29, 12.85it/s] 6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      4/199      3.21G    0.08963     0.9029    0.09605       1045        416:  21%|██        | 92/440 [00:07<00:26, 12.98it/s] 6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      4/199      3.21G    0.08966     0.9029    0.09605       1126        416:  27%|██▋       | 118/440 [00:09<00:25, 12.78it/s]6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      4/199      3.21G    0.08972     0.9029    0.09604       1452        416:  33%|███▎      | 146/440 [00:11<00:21, 13.67it/s]6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      4/199      3.21G    0.08972     0.9029    0.09603       1195        416:  39%|███▉      | 172/440 [00:13<00:20, 12.86it/s]6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      4/199      3.21G    0.08965     0.9029    0.09601       1172        416:  45%|████▌     | 198/440 [00:15<00:18, 12.78it/s]6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      4/199      3.21G    0.08964     0.9029    0.09599       1110        416:  51%|█████▏    | 226/440 [00:17<00:16, 13.01it/s]6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      4/199      3.21G    0.08958     0.9029    0.09599       1260        416:  57%|█████▋    | 252/440 [00:19<00:14, 12.93it/s]6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      4/199      3.21G    0.08961     0.9029      0.096       1160        416:  63%|██████▎   | 278/440 [00:21<00:12, 12.99it/s]6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      4/199      3.21G    0.08961     0.9029      0.096       1315        416:  69%|██████▊   | 302/440 [00:22<00:10, 12.84it/s]6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      4/199      3.21G    0.08958     0.9029    0.09599       1108        416:  75%|███████▌  | 330/440 [00:25<00:08, 12.85it/s]6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      4/199      3.21G    0.08955     0.9029    0.09599       1333        416:  81%|████████  | 356/440 [00:27<00:06, 12.86it/s]6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      4/199      3.21G    0.08954     0.9029    0.09598       1339        416:  87%|████████▋ | 382/440 [00:29<00:04, 12.71it/s]6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      4/199      3.21G    0.08956     0.9029    0.09598       1357        416:  91%|█████████ | 400/440 [00:30<00:03, 12.84it/s]6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      4/199      3.21G    0.08953     0.9029    0.09598        994        416:  97%|█████████▋| 426/440 [00:32<00:01, 12.89it/s]6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      4/199      3.21G    0.08953     0.9029    0.09598        703        416: 100%|██████████| 440/440 [00:33<00:00, 13.05it/s]6.69s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   2%|▏         | 1/48 [00:06<05:14,  6.69s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   4%|▍         | 2/48 [00:13<05:04,  6.61s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   6%|▋         | 3/48 [00:19<04:56,  6.59s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   8%|▊         | 4/48 [00:26<04:49,  6.59s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  10%|█         | 5/48 [00:32<04:42,  6.57s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  12%|█▎        | 6/48 [00:39<04:36,  6.57s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  15%|█▍        | 7/48 [00:46<04:29,  6.56s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  17%|█▋        | 8/48 [00:52<04:22,  6.57s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  19%|█▉        | 9/48 [00:59<04:16,  6.59s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  21%|██        | 10/48 [01:05<04:10,  6.60s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  23%|██▎       | 11/48 [01:12<04:04,  6.60s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  25%|██▌       | 12/48 [01:19<03:58,  6.61s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  27%|██▋       | 13/48 [01:25<03:51,  6.61s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  29%|██▉       | 14/48 [01:32<03:44,  6.61s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  31%|███▏      | 15/48 [01:38<03:37,  6.60s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  33%|███▎      | 16/48 [01:45<03:31,  6.61s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  35%|███▌      | 17/48 [01:52<03:25,  6.63s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  38%|███▊      | 18/48 [01:58<03:18,  6.62s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  40%|███▉      | 19/48 [02:05<03:11,  6.62s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  42%|████▏     | 20/48 [02:12<03:05,  6.62s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  44%|████▍     | 21/48 [02:18<02:58,  6.62s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  46%|████▌     | 22/48 [02:25<02:52,  6.62s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  48%|████▊     | 23/48 [02:31<02:45,  6.63s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  50%|█████     | 24/48 [02:38<02:39,  6.63s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  52%|█████▏    | 25/48 [02:45<02:32,  6.63s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  54%|█████▍    | 26/48 [02:51<02:25,  6.63s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  56%|█████▋    | 27/48 [02:58<02:19,  6.62s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  58%|█████▊    | 28/48 [03:05<02:12,  6.62s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  60%|██████    | 29/48 [03:11<02:05,  6.62s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  62%|██████▎   | 30/48 [03:18<01:59,  6.62s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  65%|██████▍   | 31/48 [03:24<01:52,  6.62s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  67%|██████▋   | 32/48 [03:31<01:45,  6.62s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  69%|██████▉   | 33/48 [03:38<01:39,  6.61s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  71%|███████   | 34/48 [03:44<01:32,  6.60s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  73%|███████▎  | 35/48 [03:51<01:25,  6.61s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  75%|███████▌  | 36/48 [03:57<01:19,  6.60s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  77%|███████▋  | 37/48 [04:04<01:12,  6.60s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  79%|███████▉  | 38/48 [04:11<01:06,  6.60s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  81%|████████▏ | 39/48 [04:17<00:59,  6.61s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  83%|████████▎ | 40/48 [04:24<00:52,  6.61s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  85%|████████▌ | 41/48 [04:30<00:46,  6.60s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  88%|████████▊ | 42/48 [04:37<00:39,  6.60s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  90%|████████▉ | 43/48 [04:44<00:32,  6.59s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  92%|█████████▏| 44/48 [04:50<00:26,  6.59s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  94%|█████████▍| 45/48 [04:57<00:19,  6.59s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:  96%|█████████▌| 46/48 [05:03<00:13,  6.60s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size   mAP50-95: 100%|██████████| 48/48 [05:10<00:00,  6.47s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      Epoch    GPU_mem   box_loss   obj_loss   cls_loss  Instances       Size   mAP50-95: 100%|██████████| 48/48 [05:10<00:00,  6.47s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      5/199      3.21G    0.08921     0.9029    0.09593       1123        416:  11%|█▏        | 50/440 [00:03<00:29, 13.18it/s] 6.47s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      5/199      3.21G    0.08913     0.9029    0.09594       1100        416:  18%|█▊        | 78/440 [00:05<00:26, 13.51it/s] 6.47s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      5/199      3.21G    0.08922     0.9029    0.09596       1151        416:  23%|██▎       | 102/440 [00:07<00:24, 13.62it/s]6.47s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      5/199      3.21G    0.08937     0.9029    0.09596       1333        416:  30%|███       | 132/440 [00:09<00:22, 13.57it/s]6.47s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      5/199      3.21G    0.08937     0.9029    0.09595       1315        416:  36%|███▋      | 160/440 [00:11<00:20, 13.60it/s]6.47s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      5/199      3.21G    0.08937     0.9029    0.09594       1257        416:  42%|████▏     | 186/440 [00:13<00:19, 12.79it/s]6.47s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      5/199      3.21G     0.0893     0.9029    0.09594       1309        416:  48%|████▊     | 212/440 [00:15<00:17, 13.03it/s]6.47s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      5/199      3.21G    0.08929     0.9029    0.09593       1147        416:  55%|█████▍    | 240/440 [00:17<00:15, 13.19it/s]6.47s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      5/199      3.21G    0.08928     0.9029    0.09593       1134        416:  60%|██████    | 266/440 [00:19<00:13, 12.78it/s]6.47s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      5/199      3.21G    0.08929     0.9029    0.09592       1154        416:  66%|██████▋   | 292/440 [00:21<00:11, 13.00it/s]6.47s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      5/199      3.21G    0.08926     0.9029    0.09592       1207        416:  72%|███████▏  | 318/440 [00:23<00:09, 12.92it/s]6.47s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      5/199      3.21G    0.08918     0.9029    0.09591       1353        416:  78%|███████▊  | 344/440 [00:25<00:07, 12.95it/s]6.47s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      5/199      3.21G    0.08916     0.9029    0.09592       1288        416:  84%|████████▍ | 370/440 [00:27<00:05, 12.89it/s]6.47s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      5/199      3.21G    0.08916     0.9029    0.09592       1124        416:  90%|█████████ | 396/440 [00:29<00:03, 12.95it/s]6.47s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      5/199      3.21G    0.08915     0.9029    0.09592       1355        416:  95%|█████████▌| 420/440 [00:31<00:01, 12.95it/s]6.47s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+      5/199      3.21G    0.08914     0.9029    0.09591        606        416: 100%|██████████| 440/440 [00:33<00:00, 13.13it/s]6.47s/it]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   2%|▏         | 1/48 [00:06<05:20,  6.83s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   4%|▍         | 2/48 [00:13<05:09,  6.73s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+                 Class     Images  Instances          P          R      mAP50   mAP50-95:   6%|▋         | 3/48 [00:20<05:01,  6.71s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+KeyboardInterruptops.torchvision.nms(boxes, scores, iou_threshold)non_max_suppression-95:   6%|▋         | 3/48 [00:26<06:32,  8.71s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
+KeyboardInterruptops.torchvision.nms(boxes, scores, iou_threshold)non_max_suppression-95:   6%|▋         | 3/48 [00:26<06:32,  8.71s/it]]WARNING ⚠️ NMS time limit 6.900s exceeded
