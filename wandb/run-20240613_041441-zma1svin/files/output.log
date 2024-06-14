@@ -1,0 +1,49 @@
+Overriding model.yaml nc=4 with nc=15
+                 from  n    params  module                                  arguments
+  0                -1  1      1760  models.common.Conv                      [3, 16, 6, 2, 2]
+  1                -1  1      4672  models.common.Conv                      [16, 32, 3, 2]
+  2                -1  1      4800  models.common.C3                        [32, 32, 1]
+  3                -1  1     18560  models.common.Conv                      [32, 64, 3, 2]
+  4                -1  2     29184  models.common.C3                        [64, 64, 2]
+  5                -1  1     73984  models.common.Conv                      [64, 128, 3, 2]
+  6                -1  3    156928  models.common.C3                        [128, 128, 3]
+  7                -1  1    295424  models.common.Conv                      [128, 256, 3, 2]
+  8                -1  1    296448  models.common.C3                        [256, 256, 1]
+  9                -1  1    164608  models.common.SPPF                      [256, 256, 5]
+ 10                -1  1     33024  models.common.Conv                      [256, 128, 1, 1]
+ 11                -1  1         0  torch.nn.modules.upsampling.Upsample    [None, 2, 'nearest']
+ 12           [-1, 6]  1         0  models.common.Concat                    [1]
+ 13                -1  1     90880  models.common.C3                        [256, 128, 1, False]
+ 14                -1  1      8320  models.common.Conv                      [128, 64, 1, 1]
+ 15                -1  1         0  torch.nn.modules.upsampling.Upsample    [None, 2, 'nearest']
+ 16           [-1, 4]  1         0  models.common.Concat                    [1]
+ 17                -1  1     22912  models.common.C3                        [128, 64, 1, False]
+ 18                -1  1     36992  models.common.Conv                      [64, 64, 3, 2]
+ 19          [-1, 14]  1         0  models.common.Concat                    [1]
+ 20                -1  1     74496  models.common.C3                        [128, 128, 1, False]
+ 21                -1  1    147712  models.common.Conv                      [128, 128, 3, 2]
+ 22          [-1, 10]  1         0  models.common.Concat                    [1]
+ 23                -1  1    296448  models.common.C3                        [256, 256, 1, False]
+ 24      [17, 20, 23]  1      9020  models.yolo.Detect                      [15, [[11, 20], [34, 24], [81, 51]], [64, 128, 256]]
+YOLOv5n_nuscenes summary: 214 layers, 1766172 parameters, 1766172 gradients, 4.2 GFLOPs
+Transferred 342/349 items from yolov5n.pt
+[34m[1mAMP: [39m[22mchecks passed ✅
+[34m[1moptimizer:[39m[22m SGD(lr=0.01) with parameter groups 57 weight(decay=0.0), 60 weight(decay=0.0005), 60 bias
+Traceback (most recent call last):
+  File "/home/yolov5/AUE8088-PA2/utils/dataloaders.py", line 580, in __init__
+    raise FileNotFoundError(f"{prefix}{p} does not exist")
+FileNotFoundError: [34m[1mtrain: [39m[22m/home/yolov5/AUE8088-PA2/datasets/nuscenes/datasets/nuscenes/train.txt does not exist
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "/home/yolov5/AUE8088-PA2/train_simple.py", line 485, in <module>
+    main(opt)
+  File "/home/yolov5/AUE8088-PA2/train_simple.py", line 480, in main
+    train(opt.hyp, opt, device, callbacks)
+  File "/home/yolov5/AUE8088-PA2/train_simple.py", line 179, in train
+    train_loader, dataset = create_dataloader(
+  File "/home/yolov5/AUE8088-PA2/utils/dataloaders.py", line 181, in create_dataloader
+    dataset = LoadImagesAndLabels(
+  File "/home/yolov5/AUE8088-PA2/utils/dataloaders.py", line 585, in __init__
+    raise Exception(f"{prefix}Error loading data from {path}: {e}\n{HELP_URL}") from e
+Exception: [34m[1mtrain: [39m[22mError loading data from ['/home/yolov5/AUE8088-PA2/datasets/nuscenes/datasets/nuscenes/train.txt']: [34m[1mtrain: [39m[22m/home/yolov5/AUE8088-PA2/datasets/nuscenes/datasets/nuscenes/train.txt does not exist
+See https://docs.ultralytics.com/yolov5/tutorials/train_custom_data
